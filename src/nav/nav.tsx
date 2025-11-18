@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { NavLink, Link } from 'react-router-dom'
 import logo from '../assets/ritmo-logo.png'
 
 function Navbar() {
@@ -10,9 +11,11 @@ function Navbar() {
 	return (
 		<header className="navbar">
 			<div className="nav-container">
-				<a href="/" className="brand" onClick={close} aria-label="Ritmo Home">
-					<img src={logo} alt="Ritmo" className="brand-logo" />
-				</a>
+				<Link to="/" className="brand" onClick={close} aria-label="Ritmo Home">
+					<span className="brand-badge">
+						<img src={logo} alt="Ritmo" className="brand-logo" />
+					</span>
+				</Link>
 
 				<button
 					className="mobile-toggle"
@@ -26,9 +29,9 @@ function Navbar() {
 				</button>
 
 				<nav className={"nav-links" + (open ? " nav-links--open" : "")}>
-					<a href="#about" onClick={close}>About Us</a>
-					<a href="#contact" onClick={close}>Contact Us</a>
-					<a href="#news" onClick={close}>News</a>
+					<NavLink to="/about" onClick={close} className={({isActive}) => isActive ? 'pill active' : 'pill'}>About Us</NavLink>
+					<NavLink to="/contact" onClick={close} className={({isActive}) => isActive ? 'pill active' : 'pill'}>Contact Us</NavLink>
+					<NavLink to="/news" onClick={close} className={({isActive}) => isActive ? 'pill active' : 'pill'}>News</NavLink>
 				</nav>
 			</div>
 		</header>
