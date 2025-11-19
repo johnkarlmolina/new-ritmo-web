@@ -1,8 +1,14 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import bgImg from '../assets/landing_logo.png'
+import cpRitmo from '../assets/cp-ritmo.png'
 import brushingGif from '../asset-gif/brushing.gif'
 import washingGif from '../asset-gif/washing.gif'
 import eatingGif from '../asset-gif/eating.gif'
+import goingHomeGif from '../asset-gif/going home.gif'
+import goingSchoolGif from '../asset-gif/going to school.gif'
+import goingSleepGif from '../asset-gif/going to sleep.gif'
+import puttingClothesGif from '../asset-gif/putting clothes.gif'
+import puttingPajamaGif from '../asset-gif/putting pajama.gif'
 
 function Reveal({
   children,
@@ -77,6 +83,63 @@ function Reveal({
   )
 }
 
+function GifSlider() {
+  const trackRef = useRef<HTMLDivElement | null>(null)
+  const items = [
+    brushingGif,
+    washingGif,
+    eatingGif,
+    goingHomeGif,
+    goingSchoolGif,
+    goingSleepGif,
+    puttingClothesGif,
+    puttingPajamaGif,
+  ]
+
+  const scrollByAmount = (dir: number) => {
+    const el = trackRef.current
+    if (!el) return
+    const card = el.firstElementChild as HTMLElement | null
+    const amount = (card?.offsetWidth ?? 220) + 24 // width + gap
+    el.scrollBy({ left: dir * amount, behavior: 'smooth' })
+  }
+
+  return (
+    <div className="relative mt-10">
+      <button
+        type="button"
+        aria-label="Scroll left"
+        onClick={() => scrollByAmount(-1)}
+        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-300 bg-white text-teal-700 shadow hover:bg-teal-50"
+      >
+        <span className="sr-only">Left</span>
+        ‹
+      </button>
+      <div
+        ref={trackRef}
+        className="mx-12 overflow-x-auto scroll-smooth"
+      >
+        <div className="flex gap-6 snap-x snap-mandatory py-2">
+          {items.map((src, idx) => (
+            <div key={idx} className="snap-start shrink-0 w-48 h-48 rounded-2xl border-2 border-teal-300 bg-white shadow-brand p-2 flex items-center justify-center">
+              <img src={src} alt="routine" className="w-full h-full object-contain" />
+            </div>
+          ))}
+        </div>
+      </div>
+      <button
+        type="button"
+        aria-label="Scroll right"
+        onClick={() => scrollByAmount(1)}
+        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-300 bg-white text-teal-700 shadow hover:bg-teal-50"
+      >
+        <span className="sr-only">Right</span>
+        ›
+      </button>
+    </div>
+  )
+}
+
 export default function Home() {
   return (
     <>
@@ -138,7 +201,7 @@ export default function Home() {
         </div>
       </div>
     </section>
-    {/* How We Help You Section */}
+    {/* How We Help You Section (moved up) */}
     <section className="w-screen -mx-[calc(50vw-50%)] py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal from="up" delay={0}>
@@ -164,6 +227,53 @@ export default function Home() {
             </div>
           </Reveal>
         </div>
+      </div>
+    </section>
+    {/* Routine Success Tools Section (moved down) */}
+    <section className="w-screen -mx-[calc(50vw-50%)] py-16">
+      <div className="mx-auto max-w-7xl px-6">
+        <Reveal from="up" delay={0}>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-center text-slate-800">Routine Success Tools</h3>
+        </Reveal>
+        <Reveal from="up" delay={120}>
+          <p className="text-center text-slate-600 mt-2 mb-10 max-w-3xl mx-auto">
+            Everything you need to create a predictable, stress-free structure your child can thrive on.
+          </p>
+        </Reveal>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <Reveal from="left" delay={0}>
+            <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-3 flex items-center justify-center">
+              <img src={cpRitmo} alt="Ritmo app screenshot" className="w-full h-auto max-w-xl" />
+            </div>
+          </Reveal>
+
+          <Reveal from="right" delay={0}>
+            <div>
+              <h4 className="text-2xl md:text-3xl font-extrabold text-slate-800 mb-4">Routine Setup Page</h4>
+              <p className="text-slate-700 mb-6">
+                This page is the starting point for building and managing your child's daily structure. It is designed to be
+                intuitive and engaging, transforming necessary daily activities into clear, visual, and predictable steps.
+              </p>
+              <ul className="space-y-3 text-slate-700 list-disc pl-5">
+                <li>
+                  Visual schedule cards for activities like brushing, eating and bath time — each presented with friendly illustrations.
+                </li>
+                <li>
+                  Time allocation alongside visuals to build awareness and predictability.
+                </li>
+                <li>
+                  Quick add with a prominent plus icon to set up routines easily.
+                </li>
+              </ul>
+            </div>
+          </Reveal>
+        </div>
+
+        {/* GIF Slider */}
+        <Reveal from="up" delay={120}>
+          <GifSlider />
+        </Reveal>
       </div>
     </section>
     </>
