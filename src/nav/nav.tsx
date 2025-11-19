@@ -8,8 +8,9 @@ function Navbar() {
 	const toggle = () => setOpen((v) => !v)
 	const close = () => setOpen(false)
 
+
 	const pillBase =
-		'inline-flex items-center justify-center rounded-full border border-white/40 bg-[#A6E3C8] text-[#184a46] visited:text-[#184a46] font-semibold shadow-sm px-4 py-2 hover:bg-[#9cdbc1] transition-colors'
+		'inline-flex items-center justify-center rounded-full border border-white/40 bg-[#A6E3C8] text-white visited:text-white font-semibold shadow-sm px-4 py-2 hover:bg-[#9cdbc1] transition-colors'
 
 	const pillClass = ({ isActive }: { isActive: boolean }) =>
 		isActive ? `${pillBase} bg-[#94d9bc]` : pillBase
@@ -76,19 +77,19 @@ function Navbar() {
 				<div className="px-4 py-3 space-y-2 transition-all duration-300">
 					<NavLink to="/about" onClick={close} className={({ isActive }) =>
 						(isActive ? 'bg-[#94d9bc]' : 'bg-[#A6E3C8]') +
-						' block w-full text-center rounded-full border border-white/40 text-[#184a46] visited:text-[#184a46] font-semibold px-4 py-3 shadow-sm hover:bg-[#9cdbc1]'
+						' block w-full text-center rounded-full border border-white/40 text-white visited:text-white font-semibold px-4 py-3 shadow-sm hover:bg-[#9cdbc1]'
 					}>
 						About Us
 					</NavLink>
 					<NavLink to="/contact" onClick={close} className={({ isActive }) =>
 						(isActive ? 'bg-[#94d9bc]' : 'bg-[#A6E3C8]') +
-						' block w-full text-center rounded-full border border-white/40 text-[#184a46] visited:text-[#184a46] font-semibold px-4 py-3 shadow-sm hover:bg-[#9cdbc1]'
+						' block w-full text-center rounded-full border border-white/40 text-white visited:text-white font-semibold px-4 py-3 shadow-sm hover:bg-[#9cdbc1]'
 					}>
 						Contact Us
 					</NavLink>
 					<NavLink to="/news" onClick={close} className={({ isActive }) =>
 						(isActive ? 'bg-[#94d9bc]' : 'bg-[#A6E3C8]') +
-						' block w-full text-center rounded-full border border-white/40 text-[#184a46] visited:text-[#184a46] font-semibold px-4 py-3 shadow-sm hover:bg-[#9cdbc1]'
+						' block w-full text-center rounded-full border border-white/40 text-white visited:text-white font-semibold px-4 py-3 shadow-sm hover:bg-[#9cdbc1]'
 					}>
 						News
 					</NavLink>
