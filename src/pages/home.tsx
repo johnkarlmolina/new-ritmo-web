@@ -87,6 +87,9 @@ function Reveal({
 
 function GifSlider() {
   const trackRef = useRef<HTMLDivElement | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
+  const hoverDirRef = useRef<number>(0) // -1 left, 0 stop, 1 right
+  const rafRef = useRef<number | null>(null)
   const items = [
     brushingGif,
     washingGif,
@@ -107,7 +110,38 @@ function GifSlider() {
   }
 
   return (
-    <div className="relative mt-10">
+    <div className="relative mt-10" ref={containerRef}
+      onMouseEnter={() => {
+        // start loop
+        if (rafRef.current) return
+        const step = () => {
+          const el = trackRef.current
+          if (!el) return
+          const dir = hoverDirRef.current
+          if (dir !== 0) {
+            const speed = 0.6 // px per ms (~600px/s)
+            el.scrollLeft += dir * speed * 16 // approximate per frame
+          }
+          rafRef.current = window.requestAnimationFrame(step)
+        }
+        rafRef.current = window.requestAnimationFrame(step)
+      }}
+      onMouseMove={(e) => {
+        const box = containerRef.current?.getBoundingClientRect()
+        if (!box) return
+        const x = e.clientX - box.left
+        const leftZone = box.width * 0.35
+        const rightZone = box.width * 0.65
+        hoverDirRef.current = x < leftZone ? -1 : x > rightZone ? 1 : 0
+      }}
+      onMouseLeave={() => {
+        hoverDirRef.current = 0
+        if (rafRef.current) {
+          window.cancelAnimationFrame(rafRef.current)
+          rafRef.current = null
+        }
+      }}
+    >
       <button
         type="button"
         aria-label="Scroll left"
@@ -123,7 +157,7 @@ function GifSlider() {
       >
         <div className="flex gap-6 snap-x snap-mandatory py-2">
           {items.map((src, idx) => (
-            <div key={idx} className="snap-start shrink-0 w-48 h-48 rounded-2xl border-2 border-teal-300 bg-white shadow-brand p-2 flex items-center justify-center">
+            <div key={idx} className="snap-start shrink-0 w-48 h-48 rounded-2xl border-2 border-teal-300 bg-white shadow-brand p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
               <img src={src} alt="routine" className="w-full h-full object-contain" />
             </div>
           ))}
@@ -245,7 +279,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
           <Reveal from="left" delay={0}>
-            <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-3 flex items-center justify-center">
+            <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-3 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-teal-500/30 cursor-pointer">
               <img src={cpRitmo} alt="Ritmo app screenshot" className="w-full h-auto max-w-xl" />
             </div>
           </Reveal>
@@ -309,7 +343,7 @@ export default function Home() {
           </Reveal>
         </div>
         <Reveal from="right" delay={100}>
-          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand w-full h-72 md:h-[22rem]"></div>
+          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand w-full h-72 md:h-[22rem] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-teal-500/30 cursor-pointer"></div>
         </Reveal>
       </div>
     </section>
@@ -330,7 +364,7 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal from="right" delay={100}>
-            <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-4 flex items-center justify-center">
+            <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-4 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-teal-500/30 cursor-pointer">
               <img src={circleLogo} alt="Ritmo circle logo" className="w-full h-auto max-w-md" />
             </div>
           </Reveal>
@@ -350,7 +384,7 @@ export default function Home() {
       <div className="absolute inset-0 bg-white/70 pointer-events-none" />
       <div className="relative mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
         <Reveal from="left" delay={0}>
-          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-4 flex items-center justify-center">
+          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-4 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-teal-500/30 cursor-pointer">
             <img src={handPhone} alt="Ritmo app in hand" className="w-full h-auto max-w-lg object-contain" />
           </div>
         </Reveal>
