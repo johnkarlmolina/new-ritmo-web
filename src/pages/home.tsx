@@ -9,6 +9,7 @@ import goingSchoolGif from '../asset-gif/going to school.gif'
 import goingSleepGif from '../asset-gif/going to sleep.gif'
 import puttingClothesGif from '../asset-gif/putting clothes.gif'
 import puttingPajamaGif from '../asset-gif/putting pajama.gif'
+import circleLogo from '../assets/circle-logo.png'
 
 function Reveal({
   children,
@@ -276,7 +277,7 @@ export default function Home() {
         </Reveal>
       </div>
     </section>
-    {/* About Our Team Section (moved below Routine Success Tools) */}
+    {/* About Our Team Section (below Routine Success Tools) */}
     <section
       className="relative w-screen -mx-[calc(50vw-50%)] py-14 md:py-20"
       style={{
@@ -311,6 +312,31 @@ export default function Home() {
         </Reveal>
       </div>
     </section>
+
+    {/* How Ritmo Can Help You */}
+    <section className="w-screen -mx-[calc(50vw-50%)] py-14 md:py-20">
+      <div className="mx-auto max-w-7xl px-6">
+        <Reveal from="up" delay={0}>
+          <h3 className="text-3xl md:text-4xl font-extrabold text-center text-slate-800 mb-8">How Ritmo Can Help You</h3>
+        </Reveal>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          <Reveal from="left" delay={100}>
+            <p className="text-slate-700 leading-7 max-w-xl">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+              ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+              fugiat nulla pariatur.
+            </p>
+          </Reveal>
+          <Reveal from="right" delay={100}>
+            <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-4 flex items-center justify-center">
+              <img src={circleLogo} alt="Ritmo circle logo" className="w-full h-auto max-w-md" />
+            </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
     </>
   )
 }
