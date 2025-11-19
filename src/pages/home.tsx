@@ -91,6 +91,7 @@ function GifSlider() {
   const containerRef = useRef<HTMLDivElement | null>(null)
   const hoverDirRef = useRef<number>(0) // -1 left, 0 stop, 1 right
   const rafRef = useRef<number | null>(null)
+  const autoplayRef = useRef<number | null>(null)
   const items = [
     brushingGif,
     washingGif,
@@ -110,10 +111,41 @@ function GifSlider() {
     el.scrollBy({ left: dir * amount, behavior: 'smooth' })
   }
 
+  // Autoplay: advance by one card every 3 seconds; loop at end
+  useEffect(() => {
+    const start = () => {
+      const el = trackRef.current
+      if (!el) return
+      autoplayRef.current = window.setInterval(() => {
+        const card = el.firstElementChild as HTMLElement | null
+        const amount = (card?.offsetWidth ?? 220) + 24
+        const maxScroll = el.scrollWidth - el.clientWidth
+        const atEnd = el.scrollLeft >= maxScroll - 2
+        if (atEnd) {
+          el.scrollTo({ left: 0, behavior: 'smooth' })
+        } else {
+          el.scrollBy({ left: amount, behavior: 'smooth' })
+        }
+      }, 3000)
+    }
+    const stop = () => {
+      if (autoplayRef.current) {
+        window.clearInterval(autoplayRef.current)
+        autoplayRef.current = null
+      }
+    }
+    start()
+    return stop
+  }, [])
+
   return (
     <div className="relative mt-10" ref={containerRef}
       onMouseEnter={() => {
         // start loop
+        if (autoplayRef.current) {
+          window.clearInterval(autoplayRef.current)
+          autoplayRef.current = null
+        }
         if (rafRef.current) return
         const step = () => {
           const el = trackRef.current
@@ -140,6 +172,23 @@ function GifSlider() {
         if (rafRef.current) {
           window.cancelAnimationFrame(rafRef.current)
           rafRef.current = null
+        }
+        // resume autoplay
+        if (!autoplayRef.current) {
+          const el = trackRef.current
+          if (el) {
+            autoplayRef.current = window.setInterval(() => {
+              const card = el.firstElementChild as HTMLElement | null
+              const amount = (card?.offsetWidth ?? 220) + 24
+              const maxScroll = el.scrollWidth - el.clientWidth
+              const atEnd = el.scrollLeft >= maxScroll - 2
+              if (atEnd) {
+                el.scrollTo({ left: 0, behavior: 'smooth' })
+              } else {
+                el.scrollBy({ left: amount, behavior: 'smooth' })
+              }
+            }, 3000)
+          }
         }
       }}
     >
