@@ -276,6 +276,41 @@ export default function Home() {
         </Reveal>
       </div>
     </section>
+    {/* About Our Team Section (moved below Routine Success Tools) */}
+    <section
+      className="relative w-screen -mx-[calc(50vw-50%)] py-14 md:py-20"
+      style={{
+        backgroundImage: `url(${bgImg})`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: '240px auto',
+      }}
+    >
+      <div className="absolute inset-0 bg-white/70 pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div className="max-w-xl">
+          <Reveal from="up" delay={0}>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-5">About our team</h3>
+          </Reveal>
+          <Reveal from="up" delay={120}>
+            <p className="text-slate-700 leading-7">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore
+              et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+              aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+              qui officia deserunt mollit anim id est laborum.
+            </p>
+          </Reveal>
+          <Reveal from="up" delay={220} className="pt-6">
+            <button className="inline-flex items-center justify-center rounded-xl2 border border-transparent bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand">
+              Read More About Us
+            </button>
+          </Reveal>
+        </div>
+        <Reveal from="right" delay={100}>
+          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand w-full h-72 md:h-[22rem]"></div>
+        </Reveal>
+      </div>
+    </section>
     </>
   )
 }
