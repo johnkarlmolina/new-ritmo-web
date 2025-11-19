@@ -10,6 +10,7 @@ import goingSleepGif from '../asset-gif/going to sleep.gif'
 import puttingClothesGif from '../asset-gif/putting clothes.gif'
 import puttingPajamaGif from '../asset-gif/putting pajama.gif'
 import circleLogo from '../assets/circle-logo.png'
+import handPhone from '../assets/hand-phone.png'
 
 function Reveal({
   children,
@@ -332,6 +333,49 @@ export default function Home() {
             <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-4 flex items-center justify-center">
               <img src={circleLogo} alt="Ritmo circle logo" className="w-full h-auto max-w-md" />
             </div>
+          </Reveal>
+        </div>
+      </div>
+    </section>
+
+    {/* Android Download Section */}
+    <section
+      className="relative w-screen -mx-[calc(50vw-50%)] py-14 md:py-20"
+      style={{
+        backgroundImage: `url(${bgImg})`,
+        backgroundRepeat: 'repeat',
+        backgroundSize: '240px auto',
+      }}
+    >
+      <div className="absolute inset-0 bg-white/70 pointer-events-none" />
+      <div className="relative mx-auto max-w-7xl px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <Reveal from="left" delay={0}>
+          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-4 flex items-center justify-center">
+            <img src={handPhone} alt="Ritmo app in hand" className="w-full h-auto max-w-lg object-contain" />
+          </div>
+        </Reveal>
+        <div>
+          <Reveal from="up" delay={0}>
+            <h3 className="text-3xl md:text-4xl font-extrabold text-slate-800">The Ritmo App is now available for download on Android.</h3>
+          </Reveal>
+          <Reveal from="up" delay={120}>
+            <p className="mt-4 text-sm font-semibold text-slate-700">What does Ritmo do?</p>
+          </Reveal>
+          <Reveal from="up" delay={200}>
+            <ul className="mt-2 space-y-3 text-slate-700 list-disc pl-5">
+              <li>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua.
+              </li>
+              <li>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </li>
+            </ul>
+          </Reveal>
+          <Reveal from="up" delay={300} className="pt-6">
+            <button className="inline-flex items-center justify-center rounded-full border border-transparent bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand">
+              Download App
+            </button>
           </Reveal>
         </div>
       </div>
