@@ -28,7 +28,7 @@ export default function Home() {
           </p>
           <div className="mt-auto pt-6">
             <button
-              className="inline-flex items-center justify-center rounded-xl2 border border-white/60 bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand mx-auto"
+              className="inline-flex items-center justify-center rounded-xl2 border border-white/60 bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand mx-auto md:mx-0"
             >
               Download Mobile App
             </button>
@@ -37,17 +37,17 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 items-start justify-items-stretch">
           {/* Big left card */}
-          <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand overflow-hidden w-full max-w-sm md:max-w-none mx-auto md:h-52">
+          <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand overflow-hidden w-full max-w-sm md:max-w-none mx-auto md:h-55 transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
             <img src={brushingGif} alt="Brushing teeth" className="w-full h-full object-cover" />
           </div>
 
           {/* Middle card, halfway down from top card */}
-          <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand overflow-hidden w-full max-w-sm md:max-w-none mx-auto md:h-52 md:mt-20">
+          <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand overflow-hidden w-full max-w-sm md:max-w-none mx-auto md:h-58 md:mt-20 transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
             <img src={washingGif} alt="Washing" className="w-full h-full object-cover" />
           </div>
 
           {/* Right card small and landscape */}
-          <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand overflow-hidden w-full max-w-sm md:max-w-none mx-auto md:h-52 md:mt-6">
+          <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand overflow-hidden w-full max-w-sm md:max-w-none mx-auto md:h-55 md:mt-6 transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
             <img src={eatingGif} alt="Eating" className="w-full h-full object-cover" />
           </div>
         </div>
