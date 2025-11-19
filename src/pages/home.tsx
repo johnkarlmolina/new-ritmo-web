@@ -28,6 +28,15 @@ function Reveal({
       setNoAnim(true)
       return
     }
+    // Kick off on initial load too (e.g., after refresh) if in view
+    const rafId = window.requestAnimationFrame(() => {
+      const rect = node.getBoundingClientRect()
+      const inView = rect.top < window.innerHeight * 0.98 && rect.bottom > 0
+      if (inView) {
+        setVisible(true)
+      }
+    })
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -37,10 +46,17 @@ function Reveal({
           }
         })
       },
-      { threshold: 0.2 }
+      {
+        // Trigger as soon as a sliver enters and slightly before leaving viewport
+        threshold: 0.01,
+        rootMargin: '10% 0px -10% 0px',
+      }
     )
     observer.observe(node)
-    return () => observer.disconnect()
+    return () => {
+      observer.disconnect()
+      window.cancelAnimationFrame(rafId)
+    }
   }, [])
 
   const hiddenMap: Record<string, string> = {
