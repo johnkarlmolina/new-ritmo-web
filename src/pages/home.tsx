@@ -11,6 +11,7 @@ import puttingClothesGif from '../asset-gif/putting clothes.gif'
 import puttingPajamaGif from '../asset-gif/putting pajama.gif'
 import circleLogo from '../assets/circle-logo.png'
 import handPhone from '../assets/hand-phone.png'
+import ritmoLogo from '../assets/ritmo-logo.png'
 
 function Reveal({
   children,
@@ -415,6 +416,63 @@ export default function Home() {
       </div>
     </section>
 
+    {/* Footer */}
+    <footer className="w-screen -mx-[calc(50vw-50%)] bg-[#2c7a7b] text-white pt-14">
+      <div className="mx-auto w-full px-8 pb-14 grid grid-cols-1 md:grid-cols-12 gap-12">
+        {/* Brand + blurb */}
+        <div className="md:col-span-4 lg:col-span-3">
+          <div className="inline-flex items-center justify-center bg-white rounded-xl px-3 py-2 shadow mb-4">
+            <img src={ritmoLogo} alt="Ritmo" className="h-10 w-auto" />
+          </div>
+          <p className="text-sm leading-relaxed text-white/90 max-w-xs">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <div className="mt-8">
+            <h4 className="font-bold text-lg mb-3">Follow Us</h4>
+            <a href="#" aria-label="Facebook" className="inline-flex h-11 w-11 items-center justify-center rounded-full bg-white text-[#2c7a7b] font-bold text-xl shadow transition hover:scale-110">
+              f
+            </a>
+          </div>
+        </div>
+
+        {/* Menu */}
+        <div className="md:col-span-3 lg:col-span-3">
+          <h4 className="font-bold text-lg mb-4">Menu</h4>
+          <ul className="space-y-2 text-sm">
+            <li><a href="/about" className="hover:underline">About Us</a></li>
+            <li><a href="/contact" className="hover:underline">Contact Us</a></li>
+            <li><a href="/news" className="hover:underline">News</a></li>
+          </ul>
+          <div className="mt-8">
+            <h4 className="font-bold text-lg mb-3">Application</h4>
+            <a href="#download" className="text-sm hover:underline">Download App</a>
+          </div>
+        </div>
+
+        {/* Download CTA */}
+        <div className="md:col-span-3 lg:col-span-3">
+          <h4 className="font-bold text-lg mb-4">Download App</h4>
+          <button className="rounded-full bg-white text-[#2c7a7b] font-semibold px-6 py-3 shadow transition hover:bg-teal-50 hover:shadow-lg">Click Here!!!</button>
+          <div className="mt-10">
+            <p className="text-sm font-semibold mb-3">Back to top</p>
+            <button
+              type="button"
+              aria-label="Back to top"
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="inline-flex h-12 w-12 items-center justify-center rounded-md border border-white/60 hover:bg-white/10 transition"
+            >
+              <span className="text-xl">˄</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div className="bg-[#A6E3C8] text-[#184a46] text-center text-xs font-medium py-3 tracking-wide">
+        Copyright 2025 - Ritmo | Website Built by Group Name
+      </div>
+    </footer>
+
     </>
   )
 }
+
+// Footer included inside Home component
