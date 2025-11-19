@@ -101,21 +101,21 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 items-start justify-items-center">
           {/* Big left card */}
           <Reveal from="left" delay={0}>
-            <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand w-full max-w-[22rem] mx-auto md:h-64 p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
+            <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand w-full max-w-[25rem] mx-auto md:h-64 p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
               <img src={brushingGif} alt="Brushing teeth" className="w-full h-full object-contain" />
             </div>
           </Reveal>
 
           {/* Middle card, halfway down from top card */}
           <Reveal from="up" delay={120}>
-            <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand w-full max-w-[22rem] mx-auto md:h-64 md:mt-20 p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
+            <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand w-full max-w-[25rem] mx-auto md:h-70 md:mt-20 p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
               <img src={washingGif} alt="Washing" className="w-full h-full object-contain" />
             </div>
           </Reveal>
 
           {/* Right card small and landscape */}
           <Reveal from="right" delay={240}>
-            <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand w-full max-w-[24rem] mx-auto md:h-44 md:mt-6 p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
+            <div className="bg-white border-2 border-teal-300 rounded-2xl shadow-brand w-full max-w-[25rem] mx-auto md:h-55 md:mt-6 p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:scale-[1.03] hover:shadow-lg hover:ring-2 hover:ring-teal-500/40 cursor-pointer">
               <img src={eatingGif} alt="Eating" className="w-full h-full object-contain" />
             </div>
           </Reveal>
