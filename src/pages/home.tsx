@@ -288,7 +288,7 @@ export default function Home() {
       </div>
     </section>
     {/* How We Help You Section (moved up) */}
-    <section className="w-screen -mx-[calc(50vw-50%)] py-14 md:py-20">
+    <section className="w-screen -mx-[calc(50vw-50%)] bg-white py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal from="up" delay={0}>
           <h3 className="text-3xl md:text-4xl font-extrabold text-center text-slate-800 mb-10">How We Help You</h3>
@@ -316,7 +316,7 @@ export default function Home() {
       </div>
     </section>
     {/* Routine Success Tools Section (moved down) */}
-    <section className="w-screen -mx-[calc(50vw-50%)] py-16">
+    <section className="w-screen -mx-[calc(50vw-50%)] bg-white py-16">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal from="up" delay={0}>
           <h3 className="text-3xl md:text-4xl font-extrabold text-center text-slate-800">Routine Success Tools</h3>
@@ -398,8 +398,8 @@ export default function Home() {
       </div>
     </section>
 
-    {/* How Ritmo Can Help You */}
-    <section className="w-screen -mx-[calc(50vw-50%)] py-14 md:py-20">
+    {/* How Ritmo Can Help You Section */}
+    <section className="w-screen -mx-[calc(50vw-50%)] bg-white py-14 md:py-20">
       <div className="mx-auto max-w-7xl px-6">
         <Reveal from="up" delay={0}>
           <h3 className="text-3xl md:text-4xl font-extrabold text-center text-slate-800 mb-8">How Ritmo Can Help You</h3>
