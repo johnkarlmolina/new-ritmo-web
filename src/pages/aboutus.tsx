@@ -233,7 +233,7 @@ export default function AboutUs() {
 						</p>
 						<div className="mt-10">
 							<h4 className="font-bold text-xl mb-4 text-center md:text-left">Follow Us</h4>
-							<a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:scale-110 mx-auto md:mx-0">
+							<a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:bg-white hover:text-[#1877F2] hover:scale-110 mx-auto md:mx-0">
 								f
 							</a>
 						</div>

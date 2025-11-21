@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState, type ReactNode } from 'react'
+import { Link } from 'react-router-dom'
 import bgImg from '../assets/landing_logo.png'
 import cpRitmo from '../assets/cp-ritmo.png'
 import brushingGif from '../asset-gif/brushing.gif'
@@ -255,11 +256,12 @@ export default function Home() {
             </p>
           </Reveal>
           <Reveal from="up" delay={200} className="mt-auto pt-6">
-            <button
-              className="inline-flex items-center justify-center rounded-xl2 border border-transparent bg-[#2D7778] px-7 py-3.5 font-semibold text-white text-base md:text-lg shadow-brand mx-auto md:mx-0"
+            <Link
+              to="/download"
+              className="inline-flex items-center justify-center rounded-[10px] border border-transparent bg-[#2D7778] px-7 py-3.5 font-semibold text-white text-base md:text-lg shadow-brand mx-auto md:mx-0"
             >
               Download Mobile App
-            </button>
+            </Link>
           </Reveal>
         </div>
 
@@ -479,7 +481,7 @@ export default function Home() {
           </p>
           <div className="mt-10">
             <h4 className="font-bold text-xl mb-4 text-center md:text-left">Follow Us</h4>
-            <a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:scale-110 mx-auto md:mx-0">
+            <a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:bg-white hover:text-[#1877F2] hover:scale-110 mx-auto md:mx-0">
               f
             </a>
           </div>

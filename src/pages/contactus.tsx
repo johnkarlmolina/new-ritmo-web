@@ -24,40 +24,50 @@ export default function ContactUs() {
 
 						{/* First / Last Name */}
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-							<div>
-								<label className="block text-sm font-medium mb-2 text-black text-black text-left">First Name</label>
-								<input
-									type="text"
-									className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-								/>
-							</div>
+							<Reveal from="up" delay={0}>
+								<div>
+									<label className="block text-sm font-medium mb-2 text-black text-black text-left">First Name</label>
+									<input
+										type="text"
+										className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+									/>
+								</div>
+							</Reveal>
 
-							<div>
-								<label className="block text-sm font-medium mb-2 text-black text-left">Last Name</label>
-								<input
-									type="text"
-									className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-								/>
-							</div>
+							<Reveal from="up" delay={80}>
+								<div>
+									<label className="block text-sm font-medium mb-2 text-black text-left">Last Name</label>
+									<input
+										type="text"
+										className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+									/>
+								</div>
+							</Reveal>
 						</div>
 
 						{/* Email */}
-						<div>
-							<label className="block text-sm font-medium mb-2 text-black text-left">Email Address</label>
-							<input
-								type="email"
-								className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
-							/>
-						</div>
+
+						<Reveal from="up" delay={160}>
+							<div>
+								<label className="block text-sm font-medium mb-2 text-black text-left">Email Address</label>
+								<input
+									type="email"
+									className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+								/>
+							</div>
+						</Reveal>
 
 						{/* Message */}
-						<div>
-							<label className="block text-sm font-medium mb-2 text-black text-left">Your Message</label>
-							<textarea
-								rows={8}
-								className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
-							></textarea>
-						</div>
+
+						<Reveal from="up" delay={240}>
+							<div>
+								<label className="block text-sm font-medium mb-2 text-black text-left">Your Message</label>
+								<textarea
+									rows={8}
+									className="text-black w-full px-4 py-3 border-2 border-teal-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 resize-none"
+								></textarea>
+							</div>
+						</Reveal>
 
 						{/* Consent Checkbox */}
 						<div className="flex items-start">
@@ -137,7 +147,7 @@ export default function ContactUs() {
 						</p>
 						<div className="mt-10">
 							<h4 className="font-bold text-xl mb-4 text-center md:text-left">Follow Us</h4>
-							<a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:scale-110 mx-auto md:mx-0">
+							<a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:bg-white hover:text-[#1877F2] hover:scale-110 mx-auto md:mx-0">
 								f
 							</a>
 						</div>

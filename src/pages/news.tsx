@@ -16,9 +16,9 @@ export default function News() {
         </div>
       </section>
 
-			<footer className="w-screen -mx-[calc(50vw-50%)] bg-[#2c7a7b] text-white pt-14">
+      <footer className="w-screen -mx-[calc(50vw-50%)] bg-[#2c7a7b] text-white pt-14">
       {/* Constrain width and use grid for balanced center spacing */}
-      <div className="mx-auto max-w-6xl px-10 pb-12 grid grid-cols-1 md:grid-cols-2 gap-16 justify-items-center md:justify-items-stretch">
+      <div className="mx-auto max-w-7xl px-6 pb-12 grid grid-cols-1 md:grid-cols-2 gap-16 justify-items-center md:justify-items-stretch">
         {/* Left block: logo + text + follow */}
         <div className="max-w-xl text-center md:text-left">
           <div className="inline-flex items-center justify-center bg-white rounded-xl px-4 py-3 shadow mb-6">
@@ -29,8 +29,8 @@ export default function News() {
           </p>
           <div className="mt-10">
             <h4 className="font-bold text-xl mb-4 text-center md:text-left">Follow Us</h4>
-            <a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:scale-110 mx-auto md:mx-0">
-              f
+            <a href="#" aria-label="Facebook" className="inline-flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white font-bold text-xl shadow transition hover:bg-white hover:text-[#1877F2] hover:scale-110 mx-auto md:mx-0">
+            f
             </a>
           </div>
         </div>
