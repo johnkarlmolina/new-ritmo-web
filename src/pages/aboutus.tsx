@@ -4,6 +4,17 @@ import ritmoLogoNoBg from '../assets/ritmo-logo-no-bg.png'
 import bigPicture from '../assets/about_us_big_picture.png'
 import cpRitmo from '../assets/cp-ritmo.png'
 import flitchir from '../assets/flitchir_ng_novaliches.png'
+import AbucayImg from '../asset-team-img/Abucay.jpeg'
+import ArcasImg from '../asset-team-img/Arcas.png'
+import AwalImg from '../asset-team-img/Awal.png'
+import BertesImg from '../asset-team-img/BERTES.png'
+import DeatoImg from '../asset-team-img/Deato.jpg'
+import DuhilingImg from '../asset-team-img/DUHILING.png'
+import IsorenaImg from '../asset-team-img/Isorena.png'
+import ManzanoImg from '../asset-team-img/Manzano.jpg'
+import MendozaImg from '../asset-team-img/Mendoza.jpeg'
+import MolinaImg from '../asset-team-img/Molina.jpg'
+import PeterImg from '../asset-team-img/Peter.jpg'
 import Reveal from '../components/Reveal'
 
 export default function AboutUs() {
@@ -186,35 +197,66 @@ export default function AboutUs() {
 			>
 				<div className="mx-auto max-w-7xl px-6">
 					<Reveal from="up" delay={0}>
-						<h3 className="text-3xl md:text-4xl font-extrabold text-black text-left mb-10">Meet the TeamName team</h3>
+						<h3 className="text-3xl md:text-4xl font-extrabold text-black text-left mb-10">Meet the Team</h3>
 					</Reveal>
 
 					{/* Team Grid */}
 					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 						{/* Team Member Card */}
-						{[
-							{ name: "Flitcher Peter Hernandez", role: "Bouncer" },
-							{ name: "Full Name", role: "IT Support" },
-							{ name: "Full Name", role: "Bold ni wally" },
-							{ name: "Full Name", role: "Janitor" },
-							{ name: "Full Name", role: "Construction" },
-							{ name: "Full Name", role: "Haligi ng Tahanan" },
-							{ name: "Full Name", role: "Technical Support" },
-							{ name: "Full Name", role: "IT Manager" },
-							{ name: "Full Name", role: "Software Engineer" },
-							{ name: "Full Name", role: "Staff" },
-							{ name: "Full Name", role: "Flight Attendant" },
-							{ name: "Full Name", role: "Jungler" },
+						{[ 	
+							{ name: "Ashley D. Abucay ", role: "System Analyst" },
+							{ name: "John Pritch L. Arcas", role: "Back-end Developer" },
+							{ name: "Alrashim M. Awal", role: "Front-end Developer" },
+							{ name: "Nikki Anne R. Bertes", role: "System Analyst" },
+							{ name: "Ma. Daniella A. Brocano", role: "System Analyst" },
+							{ name: "John Carlo A. Deato", role: "Back-end Developer" },
+							{ name: "Myra Leah S. Duhiling", role: "Project Manager" },
+							{ name: "Fletcher Peter M. Hernandez", role: "Lead UI/UX Designer" },
+							{ name: "Jerald B. Isorena", role: "Lead Programmer" },
+							{ name: "Kurt Lee B. Manzano", role: "UI/UX Designer" },
+							{ name: "Mary Joy N. Mendoza", role: "System Analyst" },
+							{ name: "John Karl P. Molina", role: "Front-end Developer" },
+							{ name: "Joemar A. Sambilay", role: "System Analyst" },
 						].map((member, index) => (
 							<div key={index} className="flex flex-col items-left">
-									<Reveal from="up" delay={index * 60}>
-										<div className="w-full aspect-square bg-gray-100 rounded-2xl border-2 border-teal-300 shadow-brand mb-3 flex items-center justify-center overflow-hidden transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-											<img src={flitchir} alt="flitchir" />
-										</div>
-									</Reveal>
-									<h4 className="text-sm font-semibold text-black text-left mb-1">{member.name}</h4>
-									<p className="text-xs text-black text-left">{member.role}</p>
-								</div>
+								<Reveal from="up" delay={index * 60}>
+									{(() => {
+										const teamImageMap: Record<string, string> = {
+											abucay: AbucayImg,
+											arcas: ArcasImg,
+											awal: AwalImg,
+											bertes: BertesImg,
+											deato: DeatoImg,
+											duhiling: DuhilingImg,
+											isorena: IsorenaImg,
+											manzano: ManzanoImg,
+											mendoza: MendozaImg,
+											molina: MolinaImg,
+											peter: PeterImg,
+										}
+
+										function getImageForName(fullName: string) {
+											const tokens = fullName
+												.trim()
+												.split(/\s+/)
+												.map(t => t.replace(/[^a-zA-Z0-9]/g, '').toLowerCase())
+											for (const token of tokens) {
+												if (teamImageMap[token]) return teamImageMap[token]
+											}
+											return flitchir
+										}
+
+										const imgSrc = getImageForName(member.name)
+										return (
+											<div className="w-full aspect-square bg-gray-100 rounded-2xl border-2 border-teal-300 shadow-brand mb-3 flex items-center justify-center overflow-hidden transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
+												<img src={imgSrc} alt={member.name} className="w-full h-full object-cover" />
+											</div>
+										)
+									})()}
+								</Reveal>
+								<h4 className="text-sm font-semibold text-black text-left mb-1">{member.name}</h4>
+								<p className="text-xs text-black text-left">{member.role}</p>
+							</div>
 						))}
 					</div>
 				</div>
