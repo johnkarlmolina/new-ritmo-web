@@ -6,11 +6,13 @@ import ContactUs from './pages/contactus'
 import News from './pages/news'
 import DownloadApp from './pages/download'
 import './App.css'
+import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   return (
     <>
       <Navbar />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<AboutUs />} />

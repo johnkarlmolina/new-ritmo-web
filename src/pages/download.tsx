@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+
 import Reveal from '../components/Reveal'
 import bgImg from '../assets/landing_logo.png'
 import handPhone from '../assets/hand-phone.png'
