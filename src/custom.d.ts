@@ -1,0 +1,8 @@
+declare module '*.png'
+declare module '*.jpg'
+declare module '*.jpeg'
+declare module '*.gif'
+declare module '*.JPG'
+declare module '*.PNG'
+declare module '*.JPEG'
+declare module '*.GIF'

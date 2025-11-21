@@ -15,8 +15,9 @@ import ManzanoImg from '../asset-team-img/Manzano.jpg'
 import MendozaImg from '../asset-team-img/Mendoza.jpeg'
 import MolinaImg from '../asset-team-img/Molina.jpg'
 import PeterImg from '../asset-team-img/Peter.jpg'
+import SambilayImg from '../asset-team-img/Sambilay.jpg'
 import Reveal from '../components/Reveal'
-
+     
 export default function AboutUs() {
 	return (
 		<main
@@ -233,6 +234,7 @@ export default function AboutUs() {
 											mendoza: MendozaImg,
 											molina: MolinaImg,
 											peter: PeterImg,
+											sambilay: SambilayImg,
 										}
 
 										function getImageForName(fullName: string) {
