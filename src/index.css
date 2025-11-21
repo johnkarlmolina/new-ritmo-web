@@ -67,3 +67,10 @@ button:focus-visible {
   }
 }
 
+/* Slightly increase base font-size on larger screens for better desktop readability */
+@media (min-width: 1024px) {
+  html {
+    font-size: 112.5%; /* ~18px when browser default is 16px */
+  }
+}
+
