@@ -1,30 +1,23 @@
 import bgImg from '../assets/landing_logo.png'
 import ritmoLogo from '../assets/ritmo-logo.png'
 import cpRitmo from '../assets/cp-ritmo.png'
+import Reveal from '../components/Reveal'
 
 export default function ContactUs() {
 	return (
-		<main
-			className="w-full overflow-x-hidden"
-			style={{
-				padding: '2rem 1rem',
-				backgroundImage: `url(${bgImg})`,
-				backgroundRepeat: 'repeat',
-				backgroundSize: '240px auto',
-			}}
-		>
+		<main className="w-full overflow-x-hidden" style={{ backgroundImage: `url(${bgImg})`, backgroundRepeat: 'repeat', backgroundSize: '240px auto' }}>
 			{/* Contact Form Section */}
 			<section className="w-screen -mx-[calc(50vw-50%)] bg-[#F4FAF9] py-20">
-				<div className="mx-auto max-w-4xl px-10">
+				<div className="mx-auto max-w-4xl px-6">
 
 					{/* Title */}
 					<div className="mb-10 text-left">
-						<h2 className="text-3xl md:text-4xl font-extrabold text-black mb-2">
-							Tell us what you need!
-						</h2>
-						<p className="text-black text-base">
-							Our team is always happy to chat.
-						</p>
+						<Reveal from="up" delay={0}>
+							<h2 className="text-3xl md:text-4xl font-extrabold text-black mb-2">Tell us what you need!</h2>
+						</Reveal>
+						<Reveal from="up" delay={120}>
+							<p className="text-black text-base">Our team is always happy to chat.</p>
+						</Reveal>
 					</div>
 
 					<form className="space-y-8">
@@ -101,32 +94,32 @@ export default function ContactUs() {
 				<div className="mx-auto max-w-7xl px-6">
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 						{/* Left Column - Phone Image Placeholder */}
-						<div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-8 flex items-center justify-center min-h-[350px] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer order-2 lg:order-1">
-							<div className="text-center">
-								<img src={cpRitmo} alt="Cp Ritmo" />
+						<Reveal from="left" delay={0}>
+							<div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand p-8 flex items-center justify-center min-h-[350px] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer order-2 lg:order-1">
+								<div className="text-center">
+									<img src={cpRitmo} alt="Cp Ritmo" />
+								</div>
 							</div>
-						</div>
+						</Reveal>
 
 						{/* Right Column - Text Content */}
-						<div className="order-1 lg:order-2 text-left">
-							<h3 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
-								The Ritmo App is now available for download on Android.
-							</h3>
+						<Reveal from="right" delay={120}>
+							<div className="order-1 lg:order-2 text-left">
+								<h3 className="text-3xl md:text-4xl font-extrabold text-black mb-4">The Ritmo App is now available for download on Android.</h3>
 
-							<p className="text-sm font-semibold text-black mb-2">What does Ritmo do?</p>
+								<p className="text-sm font-semibold text-black mb-2">What does Ritmo do?</p>
 
-							<ul className="space-y-3 text-black list-disc pl-5 mb-6">
-								<li>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								</li>
-								<li>
-									Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</li>
-							</ul>
-							<button className="rounded-full bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand transition hover:bg-[#256565]">
-								Download App
-							</button>
-						</div>
+								<ul className="space-y-3 text-black list-disc pl-5 mb-6">
+									<li>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+									</li>
+									<li>
+										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+									</li>
+								</ul>
+								<button className="rounded-full bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand transition hover:bg-[#256565]">Download App</button>
+							</div>
+						</Reveal>
 					</div>
 				</div>
 			</section>

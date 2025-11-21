@@ -4,6 +4,7 @@ import ritmoLogoNoBg from '../assets/ritmo-logo-no-bg.png'
 import bigPicture from '../assets/about_us_big_picture.png'
 import cpRitmo from '../assets/cp-ritmo.png'
 import flitchir from '../assets/flitchir_ng_novaliches.png'
+import Reveal from '../components/Reveal'
 
 export default function AboutUs() {
 	return (
@@ -33,32 +34,36 @@ export default function AboutUs() {
 
 			{/* Our Mission Section */}
 			<section className="relative w-screen -mx-[calc(50vw-50%)] py-15">
-				<div className="mx-auto max-w-7xl px-16 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+				<div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
 
 					{/* Left: Text */}
 					<div className="text-left">
-						<h2 className="text-3xl md:text-4xl font-extrabold text-black mb-5">
-							Our Mission
-						</h2>
-						<p className="text-black leading-7">
-							Lorem ipsum dolor sit amet, consectetur
-							adipiscing elit. Sed do eiusmod tempor
-							incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud
-							exercitation ullamco laboris nisi ut aliquip ex
-							ea commodo consequat. Duis aute irure
-							dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur.
-							Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt
-							mollit anim id est laborum.
-						</p>
+						<Reveal from="up" delay={0}>
+							<h2 className="text-3xl md:text-4xl font-extrabold text-black mb-5">Our Mission</h2>
+						</Reveal>
+						<Reveal from="up" delay={120}>
+							<p className="text-black leading-7">
+								Lorem ipsum dolor sit amet, consectetur
+								adipiscing elit. Sed do eiusmod tempor
+								incididunt ut labore et dolore magna aliqua.
+								Ut enim ad minim veniam, quis nostrud
+								exercitation ullamco laboris nisi ut aliquip ex
+								ea commodo consequat. Duis aute irure
+								dolor in reprehenderit in voluptate velit esse
+								cillum dolore eu fugiat nulla pariatur.
+								Excepteur sint occaecat cupidatat non
+								proident, sunt in culpa qui officia deserunt
+								mollit anim id est laborum.
+							</p>
+						</Reveal>
 					</div>
 
 					{/* Right: White Card */}
-					<div className="relative bg-white rounded-2xl border-4 border-teal-300 shadow-brand p-8 h-100">
-						<img src={ritmoLogo} className="absolute left-6 bottom-6 h-16" />
-					</div>
+					<Reveal from="right" delay={180}>
+						<div className="relative bg-white rounded-2xl border-4 border-teal-300 shadow-brand p-8 h-100">
+							<img src={ritmoLogo} className="absolute left-6 bottom-6 h-16" />
+						</div>
+					</Reveal>
 
 				</div>
 			</section>
@@ -66,17 +71,20 @@ export default function AboutUs() {
 
 			{/* Second Section */}
 			<section className="relative w-screen -mx-[calc(50vw-50%)] py-15">
-				<div className="mx-auto max-w-7xl px-18 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
+				<div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
 
 					{/* Left: White Card */}
-					<div className="relative bg-white rounded-2xl border-4 border-teal-300 shadow-brand p-8 h-100">
-						<img src={ritmoLogo} className="absolute left-6 bottom-6 h-16" />
-					</div>
+					<Reveal from="left" delay={80}>
+						<div className="relative bg-white rounded-2xl border-4 border-teal-300 shadow-brand p-8 h-100">
+							<img src={ritmoLogo} className="absolute left-6 bottom-6 h-16" />
+						</div>
+					</Reveal>
 
 					{/* Right: Logo + Text */}
-					<div className="relative order-1 md:order-2 text-left">
-						<img src={ritmoLogoNoBg} className="h-20 mb-4" />
-						<p className="text-black leading-7">
+					<Reveal from="right" delay={160}>
+						<div className="relative order-1 md:order-2 text-left">
+							<img src={ritmoLogoNoBg} className="h-20 mb-4" />
+							<p className="text-black leading-7">
 							Lorem ipsum dolor sit amet, consectetur
 							adipiscing elit. Sed do eiusmod tempor
 							incididunt ut labore et dolore magna aliqua.
@@ -90,6 +98,7 @@ export default function AboutUs() {
 							mollit anim id est laborum.
 						</p>
 					</div>
+				</Reveal>
 
 				</div>
 			</section>
@@ -101,26 +110,36 @@ export default function AboutUs() {
 			>
 				<div className="mx-auto max-w-7xl px-6">
 					<div className="text-center mb-10">
-						<h3 className="text-3xl md:text-4xl font-extrabold text-black mb-4">Join us in our mission</h3>
-						<p className="text-black leading-7 max-w-2xl mx-auto">
-							Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-							Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-							Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-							nisi ut aliquip ex ea commodo consequat.
-						</p>
+						<Reveal from="up" delay={0}>
+							<h3 className="text-3xl md:text-4xl font-extrabold text-black mb-4">Join us in our mission</h3>
+						</Reveal>
+						<Reveal from="up" delay={120}>
+							<p className="text-black leading-7 max-w-2xl mx-auto">
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+								Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+								Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+								nisi ut aliquip ex ea commodo consequat.
+							</p>
+						</Reveal>
 					</div>
 
 					{/* Three Placeholder Boxes */}
-					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15 px-16">
-						<div className="bg-gray-100 rounded-2xl border-4 border-teal-300 shadow-brand p-8 aspect-square flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-							<span className="text-slate-500 text-sm">Image Placeholder</span>
-						</div>
-						<div className="bg-gray-100 rounded-2xl border-4 border-teal-300 shadow-brand p-8 aspect-square flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-							<span className="text-slate-500 text-sm">Image Placeholder</span>
-						</div>
-						<div className="bg-gray-100 rounded-2xl border-4 border-teal-300 shadow-brand p-8 aspect-square flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-							<span className="text-slate-500 text-sm">Image Placeholder</span>
-						</div>
+					<div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-15 px-6">
+						<Reveal from="up" delay={80}>
+							<div className="bg-gray-100 rounded-2xl border-4 border-teal-300 shadow-brand p-8 aspect-square flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
+								<span className="text-slate-500 text-sm">Image Placeholder</span>
+							</div>
+						</Reveal>
+						<Reveal from="up" delay={160}>
+							<div className="bg-gray-100 rounded-2xl border-4 border-teal-300 shadow-brand p-8 aspect-square flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
+								<span className="text-slate-500 text-sm">Image Placeholder</span>
+							</div>
+						</Reveal>
+						<Reveal from="up" delay={240}>
+							<div className="bg-gray-100 rounded-2xl border-4 border-teal-300 shadow-brand p-8 aspect-square flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
+								<span className="text-slate-500 text-sm">Image Placeholder</span>
+							</div>
+						</Reveal>
 					</div>
 				</div>
 			</section>
@@ -131,32 +150,32 @@ export default function AboutUs() {
 				<div className="mx-auto max-w-7xl px-6">
 					<div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
 						{/* Left Column - Phone Image Placeholder */}
-						<div className="bg-white rounded-2xl shadow-brand p-8 flex items-center justify-center min-h-[350px] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer order-2 lg:order-1">
-							<div className="text-center">
-								<img src={cpRitmo} alt="Cp Ritmo" />
+						<Reveal from="left" delay={0}>
+							<div className="bg-white rounded-2xl shadow-brand p-8 flex items-center justify-center min-h-[350px] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer order-2 lg:order-1">
+								<div className="text-center">
+									<img src={cpRitmo} alt="Cp Ritmo" />
+								</div>
 							</div>
-						</div>
+						</Reveal>
 
 						{/* Right Column - Text Content */}
-						<div className="order-1 lg:order-2 text-left">
-							<h3 className="text-3xl md:text-4xl font-extrabold text-black mb-4">
-								The Ritmo App is now available for download on Android.
-							</h3>
+						<Reveal from="right" delay={120}>
+							<div className="order-1 lg:order-2 text-left">
+								<h3 className="text-3xl md:text-4xl font-extrabold text-black mb-4">The Ritmo App is now available for download on Android.</h3>
 
-							<p className="text-sm font-semibold text-black mb-2">What does Ritmo do?</p>
+								<p className="text-sm font-semibold text-black mb-2">What does Ritmo do?</p>
 
-							<ul className="space-y-3 text-black list-disc pl-5 mb-6">
-								<li>
-									Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-								</li>
-								<li>
-									Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-								</li>
-							</ul>
-							<button className="rounded-full bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand transition hover:bg-[#256565]">
-								Download App
-							</button>
-						</div>
+								<ul className="space-y-3 text-black list-disc pl-5 mb-6">
+									<li>
+										Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+									</li>
+									<li>
+										Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+									</li>
+								</ul>
+								<button className="rounded-full bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand transition hover:bg-[#256565]">Download App</button>
+							</div>
+						</Reveal>
 					</div>
 				</div>
 			</section>
@@ -166,7 +185,9 @@ export default function AboutUs() {
 				className="w-screen -mx-[calc(50vw-50%)] bg-white py-14 md:py-20"
 			>
 				<div className="mx-auto max-w-7xl px-6">
-					<h3 className="text-3xl md:text-4xl font-extrabold text-black text-left mb-10">Meet the TeamName team</h3>
+					<Reveal from="up" delay={0}>
+						<h3 className="text-3xl md:text-4xl font-extrabold text-black text-left mb-10">Meet the TeamName team</h3>
+					</Reveal>
 
 					{/* Team Grid */}
 					<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -186,14 +207,14 @@ export default function AboutUs() {
 							{ name: "Full Name", role: "Jungler" },
 						].map((member, index) => (
 							<div key={index} className="flex flex-col items-left">
-								<div className="w-full aspect-square bg-gray-100 rounded-2xl border-2 border-teal-300 shadow-brand mb-3 flex items-center justify-center overflow-hidden transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
-									<img src={flitchir} alt="flitchir" />
+									<Reveal from="up" delay={index * 60}>
+										<div className="w-full aspect-square bg-gray-100 rounded-2xl border-2 border-teal-300 shadow-brand mb-3 flex items-center justify-center overflow-hidden transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg cursor-pointer">
+											<img src={flitchir} alt="flitchir" />
+										</div>
+									</Reveal>
+									<h4 className="text-sm font-semibold text-black text-left mb-1">{member.name}</h4>
+									<p className="text-xs text-black text-left">{member.role}</p>
 								</div>
-								<h4 className="text-sm font-semibold text-black text-left mb-1">
-									{member.name}
-								</h4>
-								<p className="text-xs text-black text-left">{member.role}</p>
-							</div>
 						))}
 					</div>
 				</div>
