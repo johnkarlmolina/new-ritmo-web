@@ -1,19 +1,20 @@
 import bgImg from '../assets/landing_logo.png'
 import ritmoLogo from '../assets/ritmo-logo.png'
+import Reveal from '../components/Reveal'
 
 export default function News() {
 	return (
-		<main 
-			className="w-full overflow-x-hidden"
-			style={{ 
-				padding: '2rem 1rem',
-				backgroundImage: `url(${bgImg})`,
-				backgroundRepeat: 'repeat',
-				backgroundSize: '240px auto',
-			}}
-		>
-			<h1>News</h1>
-			<p>Latest updates and announcements appear here.</p>
+    <main className="w-full overflow-x-hidden" style={{ backgroundImage: `url(${bgImg})`, backgroundRepeat: 'repeat', backgroundSize: '240px auto' }}>
+      <section className="w-screen -mx-[calc(50vw-50%)] py-12">
+        <div className="mx-auto max-w-7xl px-6">
+          <Reveal from="up" delay={0}>
+            <h1 className="text-3xl md:text-4xl font-extrabold text-black mb-4">News</h1>
+          </Reveal>
+          <Reveal from="up" delay={120}>
+            <p className="text-black">Latest updates and announcements appear here.</p>
+          </Reveal>
+        </div>
+      </section>
 
 			<footer className="w-screen -mx-[calc(50vw-50%)] bg-[#2c7a7b] text-white pt-14">
       {/* Constrain width and use grid for balanced center spacing */}
