@@ -17,18 +17,30 @@ export default function DownloadApp() {
             </div>
           </Reveal>
 
-          <Reveal from="right" delay={120}>
-            <div>
-              <h1 className="text-3xl md:text-4xl font-extrabold text-slate-800 mb-4">Download the Ritmo App</h1>
-              <p className="text-slate-700 mb-6 max-w-prose">
-                Get the Ritmo mobile app to create visual routines and help your child build consistent habits. Available for Android.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
-                <a href="#" className="inline-flex items-center justify-center rounded-[10px] bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand hover:bg-[#256565]">Download App</a>
-              </div>
-            </div>
-          </Reveal>
+          <div>
+            <Reveal from="up" delay={0}>
+              <h3 className="text-3xl md:text-4xl font-extrabold text-slate-800">The Ritmo App is now available for download on Android.</h3>
+            </Reveal>
+            <Reveal from="up" delay={120}>
+              <p className="mt-4 text-sm font-semibold text-slate-700">What does Ritmo do?</p>
+            </Reveal>
+            <Reveal from="up" delay={200}>
+              <ul className="mt-2 space-y-3 text-slate-700 list-disc pl-5">
+                <li>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
+                  dolore magna aliqua.
+                </li>
+                <li>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </li>
+              </ul>
+            </Reveal>
+            <Reveal from="up" delay={300} className="pt-6">
+              <button className="inline-flex items-center justify-center rounded-full border border-transparent bg-[#2D7778] px-6 py-3 font-semibold text-white shadow-brand">
+                Download App
+              </button>
+            </Reveal>
+          </div>
         </div>
       </section>
 
