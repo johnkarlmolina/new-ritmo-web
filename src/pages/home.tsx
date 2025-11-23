@@ -89,11 +89,6 @@ function Reveal({
 }
 
 function GifSlider() {
-  const trackRef = useRef<HTMLDivElement | null>(null)
-  const containerRef = useRef<HTMLDivElement | null>(null)
-  const hoverDirRef = useRef<number>(0) // -1 left, 0 stop, 1 right
-  const rafRef = useRef<number | null>(null)
-  const autoplayRef = useRef<number | null>(null)
   const items = [
     brushingGif,
     washingGif,
@@ -104,126 +99,96 @@ function GifSlider() {
     puttingClothesGif,
     puttingPajamaGif,
   ]
+  const [active, setActive] = useState(0)
+  const autoplay = useRef<number | null>(null)
+  const containerRef = useRef<HTMLDivElement | null>(null)
 
-  const scrollByAmount = (dir: number) => {
-    const el = trackRef.current
-    if (!el) return
-    const card = el.firstElementChild as HTMLElement | null
-    const amount = (card?.offsetWidth ?? 220) + 24 // width + gap
-    el.scrollBy({ left: dir * amount, behavior: 'smooth' })
-  }
-
-  // Autoplay: advance by one card every 3 seconds; loop at end
   useEffect(() => {
-    const start = () => {
-      const el = trackRef.current
-      if (!el) return
-      autoplayRef.current = window.setInterval(() => {
-        const card = el.firstElementChild as HTMLElement | null
-        const amount = (card?.offsetWidth ?? 220) + 24
-        const maxScroll = el.scrollWidth - el.clientWidth
-        const atEnd = el.scrollLeft >= maxScroll - 2
-        if (atEnd) {
-          el.scrollTo({ left: 0, behavior: 'smooth' })
-        } else {
-          el.scrollBy({ left: amount, behavior: 'smooth' })
-        }
-      }, 3000)
+    autoplay.current = window.setInterval(() => {
+      setActive((i) => (i + 1) % items.length)
+    }, 3000)
+    return () => {
+      if (autoplay.current) window.clearInterval(autoplay.current)
     }
-    const stop = () => {
-      if (autoplayRef.current) {
-        window.clearInterval(autoplayRef.current)
-        autoplayRef.current = null
-      }
-    }
-    start()
-    return stop
   }, [])
 
+  const prev = () => setActive((i) => (i - 1 + items.length) % items.length)
+  const next = () => setActive((i) => (i + 1) % items.length)
+
+  // optional: pause autoplay on hover
+  const handleMouseEnter = () => {
+    if (autoplay.current) {
+      window.clearInterval(autoplay.current)
+      autoplay.current = null
+    }
+  }
+  const handleMouseLeave = () => {
+    if (!autoplay.current) {
+      autoplay.current = window.setInterval(() => {
+        setActive((i) => (i + 1) % items.length)
+      }, 3000)
+    }
+  }
+
   return (
-    <div className="relative mt-10" ref={containerRef}
-      onMouseEnter={() => {
-        // start loop
-        if (autoplayRef.current) {
-          window.clearInterval(autoplayRef.current)
-          autoplayRef.current = null
-        }
-        if (rafRef.current) return
-        const step = () => {
-          const el = trackRef.current
-          if (!el) return
-          const dir = hoverDirRef.current
-          if (dir !== 0) {
-            const speed = 0.6 // px per ms (~600px/s)
-            el.scrollLeft += dir * speed * 16 // approximate per frame
-          }
-          rafRef.current = window.requestAnimationFrame(step)
-        }
-        rafRef.current = window.requestAnimationFrame(step)
-      }}
-      onMouseMove={(e) => {
-        const box = containerRef.current?.getBoundingClientRect()
-        if (!box) return
-        const x = e.clientX - box.left
-        const leftZone = box.width * 0.35
-        const rightZone = box.width * 0.65
-        hoverDirRef.current = x < leftZone ? -1 : x > rightZone ? 1 : 0
-      }}
-      onMouseLeave={() => {
-        hoverDirRef.current = 0
-        if (rafRef.current) {
-          window.cancelAnimationFrame(rafRef.current)
-          rafRef.current = null
-        }
-        // resume autoplay
-        if (!autoplayRef.current) {
-          const el = trackRef.current
-          if (el) {
-            autoplayRef.current = window.setInterval(() => {
-              const card = el.firstElementChild as HTMLElement | null
-              const amount = (card?.offsetWidth ?? 220) + 24
-              const maxScroll = el.scrollWidth - el.clientWidth
-              const atEnd = el.scrollLeft >= maxScroll - 2
-              if (atEnd) {
-                el.scrollTo({ left: 0, behavior: 'smooth' })
-              } else {
-                el.scrollBy({ left: amount, behavior: 'smooth' })
-              }
-            }, 3000)
-          }
-        }
-      }}
-    >
-      <button
-        type="button"
-        aria-label="Scroll left"
-        onClick={() => scrollByAmount(-1)}
-        className="absolute left-0 top-1/2 -translate-y-1/2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-300 bg-white text-teal-700 shadow hover:bg-teal-50"
-      >
-        <span className="sr-only">Left</span>
-        ‹
-      </button>
-      <div
-        ref={trackRef}
-        className="mx-12 overflow-x-auto scroll-smooth"
-      >
-        <div className="flex gap-6 snap-x snap-mandatory py-2">
-          {items.map((src, idx) => (
-            <div key={idx} className="snap-start shrink-0 w-48 h-48 rounded-2xl border-2 border-teal-300 bg-white shadow-brand p-2 flex items-center justify-center transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg">
-              <img src={src} alt="routine" className="w-full h-full object-contain" />
-            </div>
-          ))}
-        </div>
+    <div className="relative mt-10" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} ref={containerRef}>
+      <div className="relative mx-auto h-64 md:h-80 lg:h-96 w-full max-w-4xl perspective-[1200px]">
+        {items.map((src, i) => {
+          const offset = ((i - active) + items.length) % items.length
+          // normalize offset to range -floor(n/2)..floor(n/2)
+          let pos = offset
+          if (offset > items.length / 2) pos = offset - items.length
+
+          const abs = Math.abs(pos)
+          const translateX = pos * 180
+          const rotateY = pos * -25
+          const scale = Math.max(0.65, 1 - abs * 0.12)
+          const zIndex = 100 - abs
+          const opacity = abs > 3 ? 0 : 1 - abs * 0.15
+
+          return (
+            <img
+              key={i}
+              src={src}
+              alt={`slide-${i}`}
+              style={{
+                transform: `translateX(${translateX}px) translateZ(${(4 - abs) * 20}px) rotateY(${rotateY}deg) scale(${scale})`,
+                transition: 'transform 600ms ease, opacity 600ms ease',
+                zIndex,
+                opacity,
+              }}
+              className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-56 md:w-80 lg:w-96 rounded-2xl border-2 border-teal-300 bg-white shadow-brand object-cover"
+            />
+          )
+        })}
+
+        <button
+          onClick={prev}
+          aria-label="Previous"
+          className="absolute left-2 top-1/2 -translate-y-1/2 z-30 inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-300 bg-white text-teal-700 shadow hover:bg-teal-50"
+        >
+          ‹
+        </button>
+
+        <button
+          onClick={next}
+          aria-label="Next"
+          className="absolute right-2 top-1/2 -translate-y-1/2 z-30 inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-300 bg-white text-teal-700 shadow hover:bg-teal-50"
+        >
+          ›
+        </button>
       </div>
-      <button
-        type="button"
-        aria-label="Scroll right"
-        onClick={() => scrollByAmount(1)}
-        className="absolute right-0 top-1/2 -translate-y-1/2 z-10 inline-flex h-10 w-10 items-center justify-center rounded-full border border-teal-300 bg-white text-teal-700 shadow hover:bg-teal-50"
-      >
-        <span className="sr-only">Right</span>
-        ›
-      </button>
+
+      <div className="mt-6 flex items-center justify-center gap-2">
+        {items.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setActive(i)}
+            aria-label={`Go to slide ${i + 1}`}
+            className={`h-2 w-8 rounded-full ${i === active ? 'bg-teal-700' : 'bg-teal-200'}`}
+          />
+        ))}
+      </div>
     </div>
   )
 }
