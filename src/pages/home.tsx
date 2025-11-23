@@ -11,6 +11,7 @@ import goingSleepGif from '../asset-gif/going to sleep.gif'
 import puttingClothesGif from '../asset-gif/putting clothes.gif'
 import puttingPajamaGif from '../asset-gif/putting pajama.gif'
 import circleLogo from '../assets/circle-logo.png'
+import teamPhoto from '../asset-team-img/team.jpg'
 import handPhone from '../assets/hand-phone.png'
 import ritmoLogo from '../assets/ritmo-logo.png'
 
@@ -395,7 +396,11 @@ export default function Home() {
           </Reveal>
         </div>
         <Reveal from="right" delay={100}>
-          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand w-full h-72 md:h-[22rem] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-teal-500/30 cursor-pointer"></div>
+          <div className="bg-white rounded-2xl border-2 border-teal-300 shadow-brand w-full h-72 md:h-[22rem] transition-transform duration-200 ease-out hover:-translate-y-1 hover:shadow-lg hover:ring-2 hover:ring-teal-500/30 cursor-pointer overflow-hidden">
+            {teamPhoto ? (
+              <img src={teamPhoto} alt="Team" className="w-full h-full object-cover" />
+            ) : null}
+          </div>
         </Reveal>
       </div>
     </section>

@@ -53,7 +53,7 @@ export default function AboutUs() {
 						<Reveal from="up" delay={0}>
 							<h2 className="text-3xl md:text-4xl font-extrabold text-black mb-5">Our Mission</h2>
 						</Reveal>
-						<Reveal from="up" delay={120}>
+						<Reveal from="up" delay={120}>1
 							<p className="text-black leading-7">
 								Lorem ipsum dolor sit amet, consectetur
 								adipiscing elit. Sed do eiusmod tempor
