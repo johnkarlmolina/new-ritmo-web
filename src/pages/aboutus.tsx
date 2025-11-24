@@ -8,13 +8,14 @@ import AbucayImg from '../asset-team-img/Abucay.jpg'
 import ArcasImg from '../asset-team-img/Arcas.png'
 import AwalImg from '../asset-team-img/Awal.png'
 import BertesImg from '../asset-team-img/BERTES.png'
+import BroncanoImg from '../asset-team-img/Broncano.png'
 import DeatoImg from '../asset-team-img/Deato.png'
 import DuhilingImg from '../asset-team-img/DUHILING.png'
 import IsorenaImg from '../asset-team-img/Isorena.png'
 import ManzanoImg from '../asset-team-img/Manzano.jpg'
 import MendozaImg from '../asset-team-img/Mendoza.jpeg'
 import MolinaImg from '../asset-team-img/Molina.jpg'
-import PeterImg from '../asset-team-img/Peter.jpg'
+import HernandezImg from '../asset-team-img/Hernandez.png'
 import SambilayImg from '../asset-team-img/Sambilay.jpg'
 import Reveal from '../components/Reveal'
      
@@ -227,13 +228,15 @@ export default function AboutUs() {
 											arcas: ArcasImg,
 											awal: AwalImg,
 											bertes: BertesImg,
+											broncano: BroncanoImg,
+											brocano: BroncanoImg,
 											deato: DeatoImg,
 											duhiling: DuhilingImg,
 											isorena: IsorenaImg,
 											manzano: ManzanoImg,
 											mendoza: MendozaImg,
 											molina: MolinaImg,
-											peter: PeterImg,
+											hernandez: HernandezImg,
 											sambilay: SambilayImg,
 										}
 
